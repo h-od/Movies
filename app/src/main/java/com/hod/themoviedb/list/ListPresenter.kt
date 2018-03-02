@@ -10,7 +10,7 @@ class ListPresenter : Presenter<ListPresenter.View>() {
     public override fun onViewAttached(view: View) {
         super.onViewAttached(view)
 
-        Service().service.get()
+        Service().service.fetchList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeUntilDetached({ view.display(it.toString()) }, { it.printStackTrace() })
