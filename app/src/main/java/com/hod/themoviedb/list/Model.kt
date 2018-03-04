@@ -6,9 +6,9 @@ data class List(
         @SerializedName("page") val page: Int? = null,
         @SerializedName("total_results") val totalResults: Int? = null,
         @SerializedName("total_pages") val totalPages: Int? = null,
-        @SerializedName("results") val results: kotlin.collections.List<Result>? = null)
+        @SerializedName("results") val results: kotlin.collections.List<Movie>? = null)
 
-data class Result(
+data class Movie(
         @SerializedName("id") val id: Int? = null,
         @SerializedName("vote_count") val voteCount: Int? = null,
         @SerializedName("video") val video: Boolean? = null,
