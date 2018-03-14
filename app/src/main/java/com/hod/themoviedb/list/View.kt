@@ -35,7 +35,7 @@ class ListFragment : Fragment(), ListPresenter.View {
         super.onDestroyView()
     }
 
-    override fun displayList(movies: List<Movie>) {
+    override fun displayList(movies: kotlin.collections.List<Movie>) {
         adapter.addItems(movies)
         adapter.notifyDataSetChanged()
     }
@@ -78,12 +78,7 @@ class Adapter : RecyclerView.Adapter<Adapter.Vh>() {
 
     override fun getItemCount(): Int = data.size
 
-    override fun onViewDetachedFromWindow(holder: Vh) {
-        clicks.onComplete()
-        super.onViewDetachedFromWindow(holder)
-    }
-
-    fun addItems(movies: List<Movie>) = data.addAll(movies)
+    fun addItems(movies: kotlin.collections.List<Movie>) = data.addAll(movies)
 
     class Vh(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.image)

@@ -22,7 +22,7 @@ class ListPresenter : Presenter<ListPresenter.View>() {
     interface View : Presenter.View {
         fun clicks(): Observable<Int>
 
-        fun displayList(movies: List<Movie>)
+        fun displayList(movies: kotlin.collections.List<Movie>)
         fun displayDetail(code: Int)
     }
 }
