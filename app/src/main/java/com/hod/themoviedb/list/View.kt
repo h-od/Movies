@@ -10,15 +10,17 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.hod.themoviedb.App
 import com.hod.themoviedb.R
 import com.hod.themoviedb.detail.DetailFragment
 import com.jakewharton.rxbinding2.view.clicks
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import javax.inject.Inject
 
 class ListFragment : Fragment(), ListPresenter.View {
 
-    private val presenter = ListPresenter()
+    @Inject lateinit var presenter: ListPresenter
     private val adapter = Adapter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -27,6 +29,7 @@ class ListFragment : Fragment(), ListPresenter.View {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity.application as App).component.inject(this)
         presenter.onViewAttached(this)
     }
 
