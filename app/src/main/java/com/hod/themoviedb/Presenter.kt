@@ -19,7 +19,7 @@ abstract class Presenter<in V : Presenter.View> {
         this.viewSubscriptions.clear()
     }
 
-    protected fun clearOnDetached(disposable: Disposable) {
+    private fun clearOnDetached(disposable: Disposable) {
         this.viewSubscriptions.add(disposable)
     }
 
