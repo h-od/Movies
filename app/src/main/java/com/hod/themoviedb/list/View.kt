@@ -2,7 +2,7 @@ package com.hod.themoviedb.list
 
 import android.app.Fragment
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -60,7 +60,7 @@ class ListFragment : Fragment(), ListPresenter.View {
     private fun View.findViews(): View {
         val recyclerView = this.findViewById<RecyclerView>(R.id.recycler)
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        recyclerView.layoutManager = LinearLayoutManager(context)
         return this
     }
 }
